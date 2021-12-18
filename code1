@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+   
+   string s;
+  cin >> s;
+  int n = s.length();
+  long long int sum = 0;
+ vector<long long int> v;
+ vector<char> vs;
+  for(int i =0;i<n ;i++)
+  {
+      if(isdigit(s[i])  && isdigit(s[i+1]))
+      {
+          sum = sum*10 + ((int)(s[i]) - 48);
+        
+      }
+       if(isdigit(s[i])  && !(isdigit(s[i+1])))
+      {
+          sum = sum*10 + ((int)(s[i]) - 48);
+       
+        v.push_back(sum);
+        sum = 0;
+      }
+      
+      if(isalpha(s[i]) || ispunct(s[i]))
+      {
+          vs.push_back(s[i]);
+      }
+      
+      
+  }
+  int k =0;
+  
+  for(int i=0;i<v.size();i++)
+  {
+      k = k + v[i];
+    
+  }
+
+  cout << k<<endl;
+  
+for(int i=0;i<vs.size();i++)
+  {
+      cout << vs[i];
+  }
+}
